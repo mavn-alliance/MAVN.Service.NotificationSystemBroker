@@ -1,0 +1,74 @@
+NotificationSystemBrokerService:
+    Db:
+        LogsConnString:
+            settings-key: NotificationSystemBrokerService-LogsConnString
+            types:
+              - AzureTableStorage
+        DataConnString:
+            settings-key: NotificationSystemBrokerService-DataConnString
+            types: 
+              - AzureTableStorage
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+Rabbit:
+    ConnectionString:
+      settings-key: NotificationSystemRabbitMQ
+      types:
+        - RabbitMq
+EmailSender:
+    Smtp:
+        Host:
+          settings-key: NotificationSystemBrokerService-SmtpHost
+        Port: 
+          settings-key: NotificationSystemBrokerService-SmtpPort
+        Username: 
+          settings-key: NotificationSystemBrokerService-Username
+          types:
+           - Optional
+        Password: 
+          settings-key: NotificationSystemBrokerService-Password
+          types:
+           - Optional
+        Sender: 
+          settings-key: NotificationSystemBrokerService-Sender
+        SenderName:
+          settings-key: NotificationSystemBrokerService-SenderName
+          types:
+           - Optional
+        UseSsl:
+          settings-key: NotificationSystemBrokerService-UseSsl
+    WorkMode:
+        settings-key: NotificationSystemBrokerService-WorkMode
+        types:
+        - Smtp
+        - Storage
+        - SmtpAndStorage
+SmsSender:
+    Timeout:
+      settings-key: NotificationSystemBrokerService-SmsSenderTimeout
+    RetriesCount:
+      settings-key: NotificationSystemBrokerService-SmsSenderRetriesCount
+    SmsProvidersRules:
+      settings-key: NotificationSystemBrokerService-SmsProvidersRules
+      types:
+        - JsonArray
+    SmsProviders:
+      settings-key: NotificationSystemBrokerService-SmsProviders
+      types:
+        - JsonArray
+PushSender:
+    Timeout:
+      settings-key: NotificationSystemBrokerService-PushSenderTimeout
+    RetriesCount:
+      settings-key: NotificationSystemBrokerService-PushSenderRetriesCount
+    ServiceClient:
+      settings-key: NotificationSystemBrokerService-PushProviderServiceUrl

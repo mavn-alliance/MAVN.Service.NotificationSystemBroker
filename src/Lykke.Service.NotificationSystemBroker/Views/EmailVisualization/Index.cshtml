@@ -1,0 +1,70 @@
+﻿@model List<Lykke.Service.NotificationSystemBroker.Domain.Entities.IEmailMessage>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            Timestamp
+        </th>
+        <th>
+            To
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var email in Model)
+    {
+        <tr class='clickable-row' href='/details?messageId=@email.MessageId'>
+            <td>@email.Timestamp</td>
+            <td>@email.Email</td>
+            <td>@email.Subject</td>
+            <td>@Html.ActionLink("Details", "Details", 
+                    "EmailVisualization", new { messageId = email.MessageId})</td>
+        </tr>
+    }
+
+    </tbody>
+</table>
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        var userSelection = document.getElementsByClassName('clickable-row');
+
+        for(let i = 0; i < userSelection.length; i++) {
+            userSelection[i].addEventListener("click",
+                function() {
+                    window.location = this.getAttribute("href");
+                });
+        }
+
+    });
+</script>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    tbody tr:hover {
+        background: #d3d3d3;
+        cursor: pointer;
+    }
+</style>

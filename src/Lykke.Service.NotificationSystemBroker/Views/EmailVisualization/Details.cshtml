@@ -1,0 +1,22 @@
+﻿@model Lykke.Service.NotificationSystemBroker.Domain.Entities.IEmailMessage
+
+<h1>
+    @Model.Subject
+</h1>
+<h3>
+    @Model.Email
+</h3>
+<div>
+    @Model.Timestamp
+</div>
+<p>
+    @Html.Raw(@Model.Body)
+</p>
+
+<a onclick="history.go(-1); return false;" href="#">Back</a><br />
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
