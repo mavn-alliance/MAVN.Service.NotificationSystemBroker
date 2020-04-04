@@ -20,7 +20,7 @@ namespace MAVN.Service.NotificationSystemBroker.MsSqlRepositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lykke.Service.NotificationSystemBroker.MsSqlRepositories.Entities.EmailMessageEntity", b =>
+            modelBuilder.Entity("MAVN.Service.NotificationSystemBroker.MsSqlRepositories.Entities.EmailMessageEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
