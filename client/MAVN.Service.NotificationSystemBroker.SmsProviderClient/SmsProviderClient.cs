@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using Lykke.HttpClientGenerator;
 using Lykke.HttpClientGenerator.Infrastructure;
 using Lykke.HttpClientGenerator.Retries;
 
@@ -35,7 +36,7 @@ namespace MAVN.Service.NotificationSystemBroker.SmsProviderClient
 
         private void InitializeClient()
         {
-            var clientBuilder = HttpClientGenerator.HttpClientGenerator.BuildForUrl(_serviceUrl)
+            var clientBuilder = HttpClientGenerator.BuildForUrl(_serviceUrl)
                 .WithAdditionalCallsWrapper(new ExceptionHandlerCallsWrapper())
                 .WithRetriesStrategy(new LinearRetryStrategy(_timeout, _retriesCount));
 
