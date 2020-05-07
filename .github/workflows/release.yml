@@ -7,11 +7,15 @@ on:
 
 env:
   RELEASE_CLIENT: true
+  RELEASE_PUSH_CLIENT: true
+  RELEASE_SMS_CLIENT: true
   RELEASE_CONTRACT: true
   RELEASE_JOB: false
   RELEASE_SERVICE: true
   
   CLIENT_PROJECT: ./client/MAVN.Service.NotificationSystemBroker.Client/MAVN.Service.NotificationSystemBroker.Client.csproj
+  PUSH_CLIENT_PROJECT: ./client/MAVN.Service.NotificationSystemBroker.PushProviderClient/MAVN.Service.NotificationSystemBroker.PushProviderClient.csproj
+  SMS_CLIENT_PROJECT: ./client/MAVN.Service.NotificationSystemBroker.SmsProviderClient/MAVN.Service.NotificationSystemBroker.SmsProviderClient.csproj
   CONTRACT_PROJECT: ./contract/MAVN.Service.NotificationSystemBroker.Contract/MAVN.Service.NotificationSystemBroker.Contract.csproj
   JOB_DOCKER_IMAGE:
   JOB_PROJECT:
@@ -73,6 +77,12 @@ jobs:
       - name: Pack client NuGet package
         if: env.RELEASE_CLIENT == 'true'
         run: dotnet pack $CLIENT_PROJECT --configuration Release --output ../../packages --no-build --include-symbols --include-source /p:SymbolPackageFormat=snupkg /p:Version=$VERSION
+      - name: Pack push client NuGet package
+        if: env.PUSH_CLIENT_PROJECT == 'true'
+        run: dotnet pack $PUSH_CLIENT_PROJECT --configuration Release --output ../../packages --no-build --include-symbols --include-source /p:SymbolPackageFormat=snupkg /p:Version=$VERSION
+      - name: Pack sms client NuGet package
+        if: env.SMS_CLIENT_PROJECT == 'true'
+        run: dotnet pack $SMS_CLIENT_PROJECT --configuration Release --output ../../packages --no-build --include-symbols --include-source /p:SymbolPackageFormat=snupkg /p:Version=$VERSION
       - name: Pack contract NuGet package
         if: env.RELEASE_CONTRACT == 'true'
         run: dotnet pack $CONTRACT_PROJECT --configuration Release --output ../../packages --no-build --include-symbols --include-source /p:SymbolPackageFormat=snupkg /p:Version=$VERSION
