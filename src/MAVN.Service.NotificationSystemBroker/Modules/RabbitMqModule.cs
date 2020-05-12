@@ -1,9 +1,9 @@
-using Autofac;
+﻿using Autofac;
 using Common;
 using JetBrains.Annotations;
 using Lykke.RabbitMqBroker.Publisher;
 using Lykke.RabbitMqBroker.Subscriber;
-using Lykke.Service.NotificationSystem.Contract.MessageContracts;
+using MAVN.Service.NotificationSystem.Contract.MessageContracts;
 using MAVN.Service.NotificationSystemBroker.Contract;
 using MAVN.Service.NotificationSystemBroker.Domain.RabbitPublishers;
 using MAVN.Service.NotificationSystemBroker.DomainServices.RabbitPublishers;

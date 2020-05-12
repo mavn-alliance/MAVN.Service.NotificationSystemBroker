@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Lykke.Common.Log;
 using Lykke.RabbitMqBroker.Subscriber;
-using Lykke.Service.NotificationSystem.Contract.MessageContracts;
+using MAVN.Service.NotificationSystem.Contract.MessageContracts;
 using MAVN.Service.NotificationSystemBroker.Domain.Services;
 
 namespace MAVN.Service.NotificationSystemBroker.DomainServices.RabbitSubscribers

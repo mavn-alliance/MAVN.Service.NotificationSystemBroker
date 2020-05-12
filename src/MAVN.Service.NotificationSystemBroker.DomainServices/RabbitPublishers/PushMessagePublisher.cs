@@ -1,6 +1,6 @@
-using Lykke.Common.Log;
+﻿using Lykke.Common.Log;
 using Lykke.RabbitMqBroker.Publisher;
-using Lykke.Service.NotificationSystem.Contract.MessageContracts;
+using MAVN.Service.NotificationSystem.Contract.MessageContracts;
 using MAVN.Service.NotificationSystemBroker.Domain.RabbitPublishers;
 
 namespace MAVN.Service.NotificationSystemBroker.DomainServices.RabbitPublishers
