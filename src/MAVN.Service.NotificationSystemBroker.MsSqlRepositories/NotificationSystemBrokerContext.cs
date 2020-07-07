@@ -1,12 +1,12 @@
-using System.Data.Common;
+﻿using System.Data.Common;
 using JetBrains.Annotations;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.NotificationSystemBroker.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MAVN.Service.NotificationSystemBroker.MsSqlRepositories
 {
-    public class NotificationSystemBrokerContext : MsSqlContext
+    public class NotificationSystemBrokerContext : PostgreSQLContext
     {
         private const string Schema = "notification_system_broker";
 
@@ -34,7 +34,7 @@ namespace MAVN.Service.NotificationSystemBroker.MsSqlRepositories
         {
         }
 
-        protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
+        protected override void OnMAVNModelCreating(ModelBuilder modelBuilder)
         {
             var emailMessageEntityBuilder = modelBuilder.Entity<EmailMessageEntity>();
 

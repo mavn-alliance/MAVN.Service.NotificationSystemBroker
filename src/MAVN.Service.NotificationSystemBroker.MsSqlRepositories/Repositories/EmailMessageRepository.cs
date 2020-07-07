@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.NotificationSystemBroker.Domain.Entities;
 using MAVN.Service.NotificationSystemBroker.Domain.Repositories;
 using MAVN.Service.NotificationSystemBroker.MsSqlRepositories.Entities;
@@ -13,10 +13,10 @@ namespace MAVN.Service.NotificationSystemBroker.MsSqlRepositories.Repositories
 {
     public class EmailMessageRepository : IEmailMessageRepository
     {
-        private readonly MsSqlContextFactory<NotificationSystemBrokerContext> _msSqlContextFactory;
+        private readonly PostgreSQLContextFactory<NotificationSystemBrokerContext> _msSqlContextFactory;
         private readonly IMapper _mapper;
 
-        public EmailMessageRepository(MsSqlContextFactory<NotificationSystemBrokerContext> msSqlContextFactory,
+        public EmailMessageRepository(PostgreSQLContextFactory<NotificationSystemBrokerContext> msSqlContextFactory,
             IMapper mapper)
         {
             _msSqlContextFactory = msSqlContextFactory;
