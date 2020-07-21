@@ -1,5 +1,5 @@
+﻿using System.Threading.Tasks;
 using Lykke.Sdk;
-using System.Threading.Tasks;
 
 namespace MAVN.Service.NotificationSystemBroker
 {

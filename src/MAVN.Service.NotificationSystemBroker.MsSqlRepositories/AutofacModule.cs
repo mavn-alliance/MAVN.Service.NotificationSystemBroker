@@ -1,5 +1,5 @@
-using Autofac;
-using MAVN.Common.MsSql;
+﻿using Autofac;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.NotificationSystemBroker.Domain.Repositories;
 using MAVN.Service.NotificationSystemBroker.MsSqlRepositories.Repositories;
 
@@ -16,7 +16,7 @@ namespace MAVN.Service.NotificationSystemBroker.MsSqlRepositories
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterMsSql(
+            builder.RegisterPostgreSQL(
                 _connectionString,
                 connString => new NotificationSystemBrokerContext(connString, false),
                 dbConn => new NotificationSystemBrokerContext(dbConn));
